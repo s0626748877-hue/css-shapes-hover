@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图形悬停效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #191a24;
+        }
+        .stage {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 56px;
+            padding: 56px 32px;
+        }
+        .cube {
+            width: 170px;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 24px var(--shadow);
+            transition: transform .3s, box-shadow .3s;
+        }
+        .cube::after {
+            content: "hover";
+            color: white;
+            font: 24px Arial, sans-serif;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+        .cube:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 24px var(--shadow);
+        }
+        .cube:hover::after {
+            opacity: 1;
+        }
+        /* 正方形 */
+        .c1 {
+            background: linear-gradient(135deg, #ff9a56, #ff5e62);
+            --shadow: rgba(255, 94, 98, .35);
+        }
+        /* 小圆角正方形 */
+        .c2 {
+            border-radius: 18px;
+            background: linear-gradient(135deg, #2dcc9c, #2dceb0);
+            --shadow: rgba(45, 206, 176, .35);
+        }
+        /* 大圆角正方形 */
+        .c3 {
+            border-radius: 40px;
+            background: linear-gradient(135deg, #af8fa8, #72628f);
+            --shadow: rgba(140, 111, 158, .35);
+        }
+        /* 渐变圆形 */
+        .c4 {
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f9d86c, #ffa180);
+            --shadow: rgba(255, 177, 113, .35);
+        }
+        /* 蓝绿色圆角正方形 */
+        .c5 {
+            border-radius: 10px;
+            background: linear-gradient(135deg, #487e66, #4b7184);
+            --shadow: rgba(72, 126, 102, .35);
+        }
+        /* 径向渐变圆形 */
+        .c6 {
+            border-radius: 50%;
+            background: radial-gradient(circle at 65% 35%, #b68fb9, #846491);
+            --shadow: rgba(164, 122, 180, .35);
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="cube c1"></div>
+        <div class="cube c2"></div>
+        <div class="cube c3"></div>
+        <div class="cube c4"></div>
+        <div class="cube c5"></div>
+        <div class="cube c6"></div>
+    </div>
+</body>
+</html>
+
